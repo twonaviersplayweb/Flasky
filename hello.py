@@ -3,7 +3,7 @@ from flask import Flask, render_template, session, url_for, redirect, flash
 from flask.ext.script import Manager, Shell
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.wtf import Form
-#from flask.ext.migrate import Migrate, MigrateCommand
+from flask.ext.migrate import Migrate, MigrateCommand
 from flask.ext.mail import Mail, Message
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
@@ -28,8 +28,8 @@ app.config['FLASKY_ADMIN'] = os.environ.get('FLASKY_ADMIN')
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
-#migrate = Migrate(app, db)
-#manager.add_command('db', MigrateCommand)
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 mail = Mail(app)
 
 class NameForm(Form):

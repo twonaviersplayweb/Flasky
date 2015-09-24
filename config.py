@@ -35,7 +35,7 @@ config = {
     'testing' : TestingConfig,
     'production' : ProductionConfig,
 
-    'defrult' : DevelopmentConfig
+    'default' : DevelopmentConfig
 }
 
 
